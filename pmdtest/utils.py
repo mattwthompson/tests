@@ -15,11 +15,11 @@ import numpy as np
 from parmed import gromacs, openmm
 
 try:
-    from simtk import openmm as mm
-    from simtk.openmm import app
-    openmm_version = tuple([int(x) for x in mm.__version__.split('.')])
-    CPU = mm.Platform.getPlatformByName('CPU')
-    Reference = mm.Platform.getPlatformByName('Reference')
+    import openmm
+    from openmm import app
+    openmm_version = tuple([int(x) for x in openmm.__version__.split('.')])
+    CPU = openmm.Platform.getPlatformByName('CPU')
+    Reference = openmm.Platform.getPlatformByName('Reference')
     has_openmm = True
 except ImportError:
     has_openmm = False
